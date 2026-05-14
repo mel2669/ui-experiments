@@ -1,4 +1,5 @@
 packages:
+  - 'apps/home'
   - 'apps/stat-cards'
   - 'apps/hover-effects'
 

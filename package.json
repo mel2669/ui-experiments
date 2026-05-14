@@ -3,10 +3,13 @@
   "private": true,
   "packageManager": "pnpm@11.1.2",
   "scripts": {
+    "dev": "pnpm --filter @ui-experiments/home dev",
+    "dev:home": "pnpm --filter @ui-experiments/home dev",
     "dev:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples dev",
     "dev:hover": "pnpm --filter @ui-experiments/hover-effects-showcase dev",
     "build": "pnpm -r run build",
     "build:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples build",
+    "build:home": "pnpm --filter @ui-experiments/home build",
     "build:hover": "pnpm --filter @ui-experiments/hover-effects-showcase build",
     "typecheck": "pnpm -r run typecheck",
     "typecheck:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples typecheck",
