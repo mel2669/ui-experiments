@@ -1,3 +1,4 @@
 # SPA fallbacks for nested Vite apps (static files shadow these)
-/stat-cards/*  /stat-cards/index.html  200
-/hover/*       /hover/index.html       200
+/stat-cards/*            /stat-cards/index.html            200
+/hover/*                 /hover/index.html                 200
+/card-border-showcase/*  /card-border-showcase/index.html  200

@@ -1,5 +1,5 @@
 /**
- * Single-site Netlify output: index at /, stat-cards at /stat-cards/, hover at /hover/.
+ * Single-site Netlify output: /, /stat-cards/, /hover/, /card-border-showcase/.
  */
 import { execSync } from "node:child_process";
 import { cpSync, mkdirSync, rmSync } from "node:fs";
@@ -14,6 +14,9 @@ function run(cmd) {
 
 run("pnpm --filter @ui-experiments/stat-card-examples exec vite build --base /stat-cards/");
 run("pnpm --filter @ui-experiments/hover-effects-showcase exec vite build --base /hover/");
+run(
+  "pnpm --filter @ui-experiments/card-border-showcase exec vite build --base /card-border-showcase/",
+);
 run("pnpm --filter @ui-experiments/home build");
 
 const deploy = join(root, "deploy");
@@ -25,5 +28,13 @@ mkdirSync(join(deploy, "stat-cards"), { recursive: true });
 cpSync(join(root, "apps/stat-cards/dist"), join(deploy, "stat-cards"), { recursive: true });
 mkdirSync(join(deploy, "hover"), { recursive: true });
 cpSync(join(root, "apps/hover-effects/dist"), join(deploy, "hover"), { recursive: true });
+mkdirSync(join(deploy, "card-border-showcase"), { recursive: true });
+cpSync(
+  join(root, "apps/card-border-showcase/dist"),
+  join(deploy, "card-border-showcase"),
+  { recursive: true },
+);
 
-console.log("Netlify bundle ready at deploy/ (/, /stat-cards/, /hover/)");
+console.log(
+  "Netlify bundle ready at deploy/ (/, /stat-cards/, /hover/, /card-border-showcase/)",
+);

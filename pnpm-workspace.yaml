@@ -2,6 +2,7 @@ packages:
   - 'apps/home'
   - 'apps/stat-cards'
   - 'apps/hover-effects'
+  - 'apps/card-border-showcase'
 
 allowBuilds:
   esbuild: true

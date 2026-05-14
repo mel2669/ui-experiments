@@ -67,6 +67,13 @@ body {
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 72rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
