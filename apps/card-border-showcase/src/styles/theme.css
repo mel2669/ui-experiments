@@ -2,6 +2,11 @@
 
 :root {
   --font-size: 16px;
+  /* Demo cards: brutal / inset shadows follow surface */
+  --demo-shadow-raised: rgba(0, 0, 0, 0.1);
+  --demo-shadow-inset: rgba(0, 0, 0, 0.1);
+  --demo-shadow-brutalist: rgba(0, 0, 0, 0.1);
+  --demo-shadow-brutalist-border: rgba(0, 0, 0, 0.1);
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -42,6 +47,10 @@
 }
 
 .dark {
+  --demo-shadow-raised: rgba(0, 0, 0, 0.55);
+  --demo-shadow-inset: rgba(255, 255, 255, 0.12);
+  --demo-shadow-brutalist: rgba(0, 0, 0, 0.65);
+  --demo-shadow-brutalist-border: rgba(255, 255, 255, 0.12);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -135,6 +144,11 @@
 
   html {
     font-size: var(--font-size);
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   h1 {

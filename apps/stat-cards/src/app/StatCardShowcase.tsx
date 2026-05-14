@@ -87,7 +87,7 @@ export function StatCardShowcase() {
                   <p className="mt-2 text-[28px] font-medium leading-tight text-foreground">3.24%</p>
                 </div>
                 <div className="rounded-full bg-svc-warning-light-max p-3">
-                  <Target className="w-6 h-6 text-orange-600" />
+                  <Target className="w-6 h-6 text-svc-warning" />
                 </div>
               </div>
               <div className="flex items-center text-svc-error text-sm">

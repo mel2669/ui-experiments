@@ -1,12 +1,23 @@
+import { ThemeToggle } from "./components/ThemeToggle";
+
 export default function App() {
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="mb-8">Card Border Treatment Showcase</h1>
+    <div className="min-h-screen bg-background p-8 text-foreground">
+      <div className="mx-auto max-w-7xl">
+        <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h1 className="mb-1 text-foreground">Card Border Treatment Showcase</h1>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              Compare borders, shadows, and glows in light and dark surfaces. Use the theme control to validate
+              contrast and separation.
+            </p>
+          </div>
+          <ThemeToggle />
+        </header>
 
         {/* Drop Shadows */}
         <section className="mb-12">
-          <h2 className="mb-6">Drop Shadows</h2>
+          <h2 className="mb-6 text-foreground">Drop Shadows</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card rounded-lg p-6 shadow-sm">
               <h3 className="mb-2">Subtle Shadow</h3>
@@ -32,7 +43,7 @@ export default function App() {
 
         {/* Colored Shadows */}
         <section className="mb-12">
-          <h2 className="mb-6">Colored Shadows</h2>
+          <h2 className="mb-6 text-foreground">Colored Shadows</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card rounded-lg p-6" style={{ boxShadow: '0 4px 16px rgba(59, 130, 246, 0.3)' }}>
               <h3 className="mb-2">Blue Shadow</h3>
@@ -58,7 +69,7 @@ export default function App() {
 
         {/* Solid Borders */}
         <section className="mb-12">
-          <h2 className="mb-6">Solid Borders</h2>
+          <h2 className="mb-6 text-foreground">Solid Borders</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card rounded-lg p-6 border border-border">
               <h3 className="mb-2">Thin Border</h3>
@@ -84,36 +95,52 @@ export default function App() {
 
         {/* Gradient Borders */}
         <section className="mb-12">
-          <h2 className="mb-6">Gradient Borders</h2>
+          <h2 className="mb-6 text-foreground">Gradient Borders</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-card rounded-lg p-6 relative" style={{
-              background: 'linear-gradient(white, white) padding-box, linear-gradient(to right, #3b82f6, #8b5cf6) border-box',
-              border: '2px solid transparent'
-            }}>
+            <div
+              className="bg-card relative rounded-lg p-6"
+              style={{
+                background:
+                  "linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(to right, #3b82f6, #8b5cf6) border-box",
+                border: "2px solid transparent",
+              }}
+            >
               <h3 className="mb-2">Blue-Purple Gradient</h3>
               <p className="text-muted-foreground">Smooth color transition</p>
             </div>
 
-            <div className="bg-card rounded-lg p-6 relative" style={{
-              background: 'linear-gradient(white, white) padding-box, linear-gradient(to right, #ec4899, #f59e0b) border-box',
-              border: '2px solid transparent'
-            }}>
+            <div
+              className="bg-card relative rounded-lg p-6"
+              style={{
+                background:
+                  "linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(to right, #ec4899, #f59e0b) border-box",
+                border: "2px solid transparent",
+              }}
+            >
               <h3 className="mb-2">Pink-Orange Gradient</h3>
               <p className="text-muted-foreground">Warm and energetic</p>
             </div>
 
-            <div className="bg-card rounded-lg p-6 relative" style={{
-              background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #667eea, #764ba2, #f093fb) border-box',
-              border: '2px solid transparent'
-            }}>
+            <div
+              className="bg-card relative rounded-lg p-6"
+              style={{
+                background:
+                  "linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(135deg, #667eea, #764ba2, #f093fb) border-box",
+                border: "2px solid transparent",
+              }}
+            >
               <h3 className="mb-2">Multi-Color Gradient</h3>
               <p className="text-muted-foreground">Complex and dynamic</p>
             </div>
 
-            <div className="bg-card rounded-lg p-6 relative" style={{
-              background: 'linear-gradient(white, white) padding-box, linear-gradient(to bottom right, #10b981, #3b82f6) border-box',
-              border: '3px solid transparent'
-            }}>
+            <div
+              className="bg-card relative rounded-lg p-6"
+              style={{
+                background:
+                  "linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(to bottom right, #10b981, #3b82f6) border-box",
+                border: "3px solid transparent",
+              }}
+            >
               <h3 className="mb-2">Green-Blue Diagonal</h3>
               <p className="text-muted-foreground">Directional emphasis</p>
             </div>
@@ -122,7 +149,7 @@ export default function App() {
 
         {/* Glow Effects */}
         <section className="mb-12">
-          <h2 className="mb-6">Glow Effects</h2>
+          <h2 className="mb-6 text-foreground">Glow Effects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card rounded-lg p-6 border border-blue-500" style={{
               boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)'
@@ -156,18 +183,14 @@ export default function App() {
 
         {/* 3D Effects */}
         <section className="mb-12">
-          <h2 className="mb-6">3D Effects</h2>
+          <h2 className="mb-6 text-foreground">3D Effects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-card rounded-lg p-6" style={{
-              boxShadow: '0 8px 0 rgba(0, 0, 0, 0.1)'
-            }}>
+            <div className="bg-card rounded-lg p-6" style={{ boxShadow: "0 8px 0 var(--demo-shadow-raised)" }}>
               <h3 className="mb-2">Raised Card</h3>
               <p className="text-muted-foreground">Lifted appearance</p>
             </div>
 
-            <div className="bg-card rounded-lg p-6" style={{
-              boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.1)'
-            }}>
+            <div className="bg-card rounded-lg p-6" style={{ boxShadow: "inset 0 2px 4px var(--demo-shadow-inset)" }}>
               <h3 className="mb-2">Inset Card</h3>
               <p className="text-muted-foreground">Pressed-in effect</p>
             </div>
@@ -178,8 +201,8 @@ export default function App() {
             </div>
 
             <div className="bg-card rounded-lg p-6" style={{
-              boxShadow: '4px 4px 0 rgba(0, 0, 0, 0.1)',
-              border: '2px solid rgba(0, 0, 0, 0.1)'
+              boxShadow: '4px 4px 0 var(--demo-shadow-brutalist)',
+              border: '2px solid var(--demo-shadow-brutalist-border)'
             }}>
               <h3 className="mb-2">Brutalist Style</h3>
               <p className="text-muted-foreground">Bold and geometric</p>
@@ -189,7 +212,7 @@ export default function App() {
 
         {/* Special Styles */}
         <section className="mb-12">
-          <h2 className="mb-6">Special Border Styles</h2>
+          <h2 className="mb-6 text-foreground">Special Border Styles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card rounded-lg p-6 border-2 border-dashed border-border">
               <h3 className="mb-2">Dashed Border</h3>
@@ -215,7 +238,7 @@ export default function App() {
 
         {/* Combined Effects */}
         <section className="mb-12">
-          <h2 className="mb-6">Combined Effects</h2>
+          <h2 className="mb-6 text-foreground">Combined Effects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card rounded-lg p-6 border border-border shadow-lg">
               <h3 className="mb-2">Border + Shadow</h3>

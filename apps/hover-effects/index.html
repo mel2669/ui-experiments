@@ -1,10 +1,22 @@
 
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" suppresshydrationwarning>
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Hover Effects Showcase</title>
+      <script>
+        (function () {
+          try {
+            var k = "ui-exp-theme-hover-effects";
+            var t = localStorage.getItem(k);
+            var dark =
+              t === "dark" ||
+              ((t === "system" || t === null) && window.matchMedia("(prefers-color-scheme: dark)").matches);
+            document.documentElement.classList.toggle("dark", dark);
+          } catch (e) {}
+        })();
+      </script>
       <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
     </head>
 
