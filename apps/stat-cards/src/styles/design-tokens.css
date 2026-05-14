@@ -1,0 +1,58 @@
+/**
+ * Services UX Design Library — primitive tokens (see DESIGN.md).
+ * Consumed via @theme in theme.css as Tailwind color/shadow utilities.
+ */
+:root {
+  --svc-overlay: #00000033;
+
+  --svc-brand-primary-light-max: #e5f0f1;
+  --svc-brand-primary-light: #99c5c8;
+  --svc-brand-primary-base: #006d75;
+  --svc-brand-primary-dark: #004c52;
+
+  --svc-brand-secondary-base: #00417d;
+  --svc-brand-secondary-dark: #002c57;
+
+  --svc-neutral-white: #ffffff;
+  --svc-neutral-black: #000000;
+  --svc-neutral-black-5: #f2f2f2;
+  --svc-neutral-black-10: #e6e6e6;
+  --svc-neutral-black-20: #cccccc;
+  --svc-neutral-black-30: #b3b3b3;
+  --svc-neutral-black-40: #999999;
+  --svc-neutral-black-50: #808080;
+  --svc-neutral-black-60: #666666;
+  --svc-neutral-black-70: #4d4d4d;
+  --svc-neutral-black-80: #333333;
+  --svc-neutral-black-90: #1a1a1a;
+
+  --svc-neutral-steel-base: #e0e3e7;
+  --svc-neutral-steel-dark: #c2c8cf;
+
+  --svc-semantic-error-light-max: #f9e9ea;
+  --svc-semantic-error-light: #f2d2d6;
+  --svc-semantic-error-base: #c01e31;
+  --svc-semantic-error-dark: #8f1921;
+
+  --svc-semantic-success-light-max: #f0f8ef;
+  --svc-semantic-success-light: #d1ebcf;
+  --svc-semantic-success-base: #65bd60;
+  --svc-semantic-success-dark: #285f30;
+
+  --svc-semantic-warning-light-max: #feefe9;
+  --svc-semantic-warning-light: #fbd0bd;
+  --svc-semantic-warning-base: #f26322;
+  --svc-semantic-warning-dark: #863b14;
+
+  --svc-semantic-info-light-max: #e8eff7;
+  --svc-semantic-info-light: #bad0e7;
+  --svc-semantic-info-base: #1961ae;
+  --svc-semantic-info-dark: #0f3a68;
+
+  --svc-accent-lavender-light-max: #f2eff9;
+  --svc-accent-lavender-light: #d8ceee;
+  --svc-accent-lavender-base: #7c5dc6;
+
+  /* Default Card Style: drop shadow 2px offset 0 2 #00000026 */
+  --svc-shadow-card: 0 2px 2px rgb(0 0 0 / 0.149);
+}

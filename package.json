@@ -1,0 +1,20 @@
+{
+  "name": "ui-experiments",
+  "private": true,
+  "packageManager": "pnpm@11.1.2",
+  "scripts": {
+    "dev:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples dev",
+    "dev:hover": "pnpm --filter @ui-experiments/hover-effects-showcase dev",
+    "build": "pnpm -r run build",
+    "build:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples build",
+    "build:hover": "pnpm --filter @ui-experiments/hover-effects-showcase build",
+    "typecheck": "pnpm -r run typecheck",
+    "typecheck:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples typecheck",
+    "typecheck:hover": "pnpm --filter @ui-experiments/hover-effects-showcase typecheck"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "6.3.5"
+    }
+  }
+}

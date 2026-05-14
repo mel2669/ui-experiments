@@ -1,0 +1,7 @@
+packages:
+  - 'apps/stat-cards'
+  - 'apps/hover-effects'
+
+allowBuilds:
+  esbuild: true
+  '@tailwindcss/oxide': true
