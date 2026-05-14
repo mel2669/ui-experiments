@@ -65,13 +65,15 @@ const PREVIEW_SLOTS: { accent: Accent; caption: string }[] = [
   { accent: "success", caption: "Performance Metrics" },
 ];
 
+export type PreviewBorderMode = "accent" | "plain" | "dividers";
+
 function CombinedStatCardPreview({
   features,
-  showBorder,
+  borderMode,
   accent,
 }: {
   features: Record<FeatureId, boolean>;
-  showBorder: boolean;
+  borderMode: PreviewBorderMode;
   accent: Accent;
 }) {
   const anyOn = useMemo(() => FEATURE_IDS.some((id) => features[id]), [features]);
@@ -80,8 +82,10 @@ function CombinedStatCardPreview({
   return (
     <div
       className={cn(
-        "h-full rounded-lg bg-card p-6 shadow-svc-card transition-[border-color,box-shadow] duration-200",
-        showBorder ? cn("border-2", ACCENT_BORDER[accent]) : "border-0",
+        "h-full p-6 transition-[border-color,box-shadow] duration-200",
+        borderMode === "accent" && cn("rounded-lg bg-card shadow-svc-card border-2", ACCENT_BORDER[accent]),
+        borderMode === "plain" && "rounded-lg border-0 bg-card shadow-none",
+        borderMode === "dividers" && "rounded-none border-0 bg-transparent shadow-none",
       )}
     >
       {!anyOn ? (
@@ -337,7 +341,7 @@ function CombinedStatCardPreview({
 
 export function CombinedFeaturePlayground() {
   const [features, setFeatures] = useState<Record<FeatureId, boolean>>(defaultFeatures);
-  const [showCardBorder, setShowCardBorder] = useState(true);
+  const [previewBorderMode, setPreviewBorderMode] = useState<PreviewBorderMode>("accent");
 
   const setFeature = (id: FeatureId, value: boolean) => {
     setFeatures((prev) => ({ ...prev, [id]: value }));
@@ -353,16 +357,28 @@ export function CombinedFeaturePlayground() {
         <div>
           <h2 className="text-lg font-semibold text-foreground">Build a combined stat card</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-            Three previews share the same section toggles. Each preview uses a different accent border color
-            (matching the combined examples below) whenever the card border is on.
+            Three previews share the same section toggles. Pick how the preview row is framed: accent borders per
+            card, plain cards without border or shadow, or one flat surface with dividers between columns.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:items-start">
+        <div
+          className={cn(
+            previewBorderMode === "dividers"
+              ? "grid grid-cols-1 divide-y divide-border overflow-hidden rounded-lg border-0 bg-card md:grid-cols-3 md:divide-x md:divide-y-0"
+              : "grid grid-cols-1 gap-6 md:grid-cols-3 md:items-start",
+          )}
+        >
           {PREVIEW_SLOTS.map(({ accent, caption }) => (
-            <div key={accent} className="flex min-w-0 flex-col gap-2">
+            <div
+              key={accent}
+              className={cn(
+                "flex min-w-0 flex-col gap-2",
+                previewBorderMode === "dividers" && "p-4 md:p-5",
+              )}
+            >
               <p className="text-xs font-medium text-muted-foreground">{caption}</p>
-              <CombinedStatCardPreview features={features} showBorder={showCardBorder} accent={accent} />
+              <CombinedStatCardPreview features={features} borderMode={previewBorderMode} accent={accent} />
             </div>
           ))}
         </div>
@@ -372,11 +388,36 @@ export function CombinedFeaturePlayground() {
         <p className="mb-6 text-sm font-semibold text-foreground">Controls</p>
 
         <div className="mb-8 flex flex-col gap-4 border-b border-border pb-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          <div className="flex items-center justify-between gap-4 sm:justify-start">
-            <Label htmlFor="card-border" className="cursor-pointer text-sm font-normal text-foreground">
-              Colored card border
-            </Label>
-            <Switch id="card-border" checked={showCardBorder} onCheckedChange={setShowCardBorder} />
+          <div className="flex flex-col gap-2 sm:min-w-0">
+            <span className="text-sm font-normal text-foreground">Preview chrome</span>
+            <div
+              className="flex flex-wrap gap-1 rounded-lg border border-border bg-card p-1 shadow-sm"
+              role="group"
+              aria-label="Preview chrome"
+            >
+              {(
+                [
+                  { id: "accent" as const, label: "Accent border" },
+                  { id: "plain" as const, label: "No border" },
+                  { id: "dividers" as const, label: "Dividers" },
+                ] satisfies { id: PreviewBorderMode; label: string }[]
+              ).map(({ id, label }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => setPreviewBorderMode(id)}
+                  className={cn(
+                    "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
+                    previewBorderMode === id
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                  )}
+                  aria-pressed={previewBorderMode === id}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
           <div className="flex shrink-0 flex-wrap gap-2">
             <button
