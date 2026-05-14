@@ -11,6 +11,7 @@
     "build:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples build",
     "build:home": "pnpm --filter @ui-experiments/home build",
     "build:hover": "pnpm --filter @ui-experiments/hover-effects-showcase build",
+    "build:netlify": "node scripts/netlify-build.mjs",
     "typecheck": "pnpm -r run typecheck",
     "typecheck:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples typecheck",
     "typecheck:hover": "pnpm --filter @ui-experiments/hover-effects-showcase typecheck"

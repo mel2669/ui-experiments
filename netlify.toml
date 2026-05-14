@@ -1,0 +1,9 @@
+# Single deploy: landing page at /, apps under /stat-cards/ and /hover/
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "pnpm install && pnpm run build:netlify"
+  publish = "deploy"
+
+[build.environment]
+  NODE_VERSION = "22"
