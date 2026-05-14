@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite --port 5175",
+    "dev": "vite",
     "preview": "vite preview",
     "typecheck": "tsc -b"
   },

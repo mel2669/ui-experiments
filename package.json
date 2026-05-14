@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@11.1.2",
   "scripts": {
-    "dev": "pnpm --filter @ui-experiments/home dev",
+    "dev": "pnpm --parallel --filter @ui-experiments/home --filter @ui-experiments/stat-card-examples --filter @ui-experiments/hover-effects-showcase --filter @ui-experiments/card-border-showcase run dev",
     "dev:home": "pnpm --filter @ui-experiments/home dev",
     "dev:stat-cards": "pnpm --filter @ui-experiments/stat-card-examples dev",
     "dev:hover": "pnpm --filter @ui-experiments/hover-effects-showcase dev",
